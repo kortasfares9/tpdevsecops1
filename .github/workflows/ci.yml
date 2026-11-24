@@ -50,3 +50,12 @@ jobs:
 # Build Docker image
       - name: Build Docker image
         run: docker build -t $democyber1:latest .
+        # Run SonarCloud scan
+      - name: SonarCloud Scan
+          uses: SonarSource/sonarcloud-github-action@master
+          with:
+            projectBaseDir: .
+              args: >
+              -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+              -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
