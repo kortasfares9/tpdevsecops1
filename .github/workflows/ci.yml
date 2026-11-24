@@ -43,7 +43,7 @@ jobs:
           path: results.sarif
      # Run SonarCloud scan
       - name: SonarCloud Scan
-        uses:SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: .
           args: >
